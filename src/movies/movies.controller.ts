@@ -20,7 +20,6 @@ export class MoviesController {
     readMovies(): Promise<Movie[]> {
       return this.movieService.readMovies();
     }
-  
     @Get(':id')
     readMovie(@Param('id') id: number): Promise<Movie> {
       return this.movieService.readMovie(id);
@@ -28,9 +27,7 @@ export class MoviesController {
   
     @Put(':id')
     updateMovie(@Param('id') id: number,@Body() newMovie: Movie): Promise<UpdateResult> {
-
       return this.movieService.updateMovie(id,newMovie);
-
     }
   
     @Delete(':id')

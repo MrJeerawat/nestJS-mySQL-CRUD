@@ -10,7 +10,12 @@ export class MoviesService {
     }
 
   createMovie(movie: Movie): Promise<Movie> {
-    return this.movieRepo.save(movie);
+    try {
+      return this.movieRepo.save(movie);
+    } catch (error) {
+      return error;
+    }
+    
   }
 
   readMovies(): Promise<Movie[]> {
