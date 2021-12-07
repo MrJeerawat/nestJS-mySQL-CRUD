@@ -11,6 +11,8 @@ export class MoviesController {
   
     @Post()
     createMovie(@Body() movie: Movie): Promise<Movie> {
+      console.log(movie);
+      
       return this.movieService.createMovie(movie);
     }
   
@@ -25,8 +27,10 @@ export class MoviesController {
     }
   
     @Put(':id')
-    updateMovie(@Param('id') id: number,@Body('id') newMovie: Movie): Promise<UpdateResult> {
+    updateMovie(@Param('id') id: number,@Body() newMovie: Movie): Promise<UpdateResult> {
+
       return this.movieService.updateMovie(id,newMovie);
+
     }
   
     @Delete(':id')

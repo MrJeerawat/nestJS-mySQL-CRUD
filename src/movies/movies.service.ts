@@ -22,7 +22,12 @@ export class MoviesService {
   }
 
   updateMovie(id:number,newMovie: Movie): Promise<UpdateResult> {
-    return this.movieRepo.update(id,newMovie)
+    if(newMovie){
+      console.log(newMovie);
+    }else{
+      console.log('no movie');
+    }
+    return  this.movieRepo.update(id, newMovie);
   }
 
   deleteMovie(id: number):Promise<DeleteResult> {
